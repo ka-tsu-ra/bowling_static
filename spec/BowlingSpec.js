@@ -5,9 +5,16 @@ describe('Bowling', function() {
     bowling = new Bowling();
   });
 
-  describe('count', function() {
+  describe('bowling', function() {
     it('displays scores as zero at the start', function() {
       expect(bowling.scoreTotal).toBe(0);
+    });
+  });
+
+  describe('count', function() {
+    it('stores the number of fallen pins in a roll', function() {
+      bowling.roll(6);
+      expect(bowling.scoreArray[0]).toBe(6);
     });
   });
 });
