@@ -1,6 +1,6 @@
 function Bowling() {
   this.scoreTotal = 0;
-  this.scoreArray = [];
+  this.rollArray = [];
 };
 
 // Bowling.prototype.roll = function() {
@@ -9,5 +9,5 @@ function Bowling() {
 // };
 
 Bowling.prototype.roll = function(num) {
-  this.scoreArray.push(num);
+  this.rollArray.push(num);
 };
