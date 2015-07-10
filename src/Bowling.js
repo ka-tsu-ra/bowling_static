@@ -12,6 +12,11 @@ Bowling.prototype.fillFrameScores = function() {
   };
 };
 
+Bowling.prototype.addBonus = function() {
+  if(this.frameScores[(this.frameScores.length-2)] == 10) { this.frameScores[(this.frameScores.length-2)] += this.frameScores[(this.frameScores.length-1)];
+  };
+};
+
 Bowling.prototype.roll = function(num) {
   this.rollCount ++;
   if (this.rollArray[(this.rollCount-2)] != 10) {
@@ -20,4 +25,5 @@ Bowling.prototype.roll = function(num) {
     this.rollArray.push(0);
   };
   this.fillFrameScores();
+  this.addBonus();
 };
