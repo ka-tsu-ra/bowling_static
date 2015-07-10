@@ -3,6 +3,7 @@ function Bowling() {
   this.frameScores = [];
   this.rollArray = [];
   this.rollCount = 0;
+  this.frameCount = 0;
 };
 
 Bowling.prototype.fillFrameScores = function() {
@@ -21,8 +22,24 @@ Bowling.prototype.addBonus = function() {
   };
 };
 
+Bowling.prototype.checkEnd = function() {
+  if((rollCount == 21) || ((rollCount == 20) && (this.frameScores[9] < 10))) {
+  alert("Game over!");
+  };
+};
+
 Bowling.prototype.roll = function(num) {
+
+
+  this.checkEnd;
   this.rollCount ++;
+
+
+
+  if (this.rollCount % 2 == 0) {
+    this.frameCount ++;
+  };
+
   if (this.rollArray[(this.rollCount-2)] != 10) {
     this.rollArray.push(num);
   } else {
