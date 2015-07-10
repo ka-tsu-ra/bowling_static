@@ -25,4 +25,12 @@ describe('Bowling', function() {
       expect(bowling.frameScores[0]).toBe(9);
     });
   });
+
+  describe('strike', function() {
+    it('ends the frame', function() {
+      bowling.roll(10);
+      bowling.roll(2);
+      expect(bowling.rollArray[1]).toBe(0);
+    });
+  });
 });
