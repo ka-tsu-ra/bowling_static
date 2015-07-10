@@ -33,4 +33,14 @@ describe('Bowling', function() {
       expect(bowling.rollArray[1]).toBe(0);
     });
   });
+
+  describe('strike bonus', function() {
+    it('adds next two rolls as bonus points', function() {
+      bowling.roll(10);
+      bowling.roll(0);
+      bowling.roll(3);
+      bowling.roll(3);
+      expect(bowling.frameScores[0]).toBe(16);
+    });
+  });
 });
