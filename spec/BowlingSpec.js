@@ -43,4 +43,14 @@ describe('Bowling', function() {
       expect(bowling.frameScores[0]).toBe(16);
     });
   });
+
+  describe('spare bonus', function() {
+    it('adds next roll as bonus points', function() {
+      bowling.roll(7);
+      bowling.roll(3);
+      bowling.roll(3);
+      bowling.roll(3);
+      expect(bowling.frameScores[0]).toBe(13);
+    });
+  });
 });
