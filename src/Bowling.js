@@ -42,7 +42,7 @@ Bowling.prototype.addBonus = function() {
 Bowling.prototype.checkEnd = function() {
   if (this.rollArray[18] + this.rollArray[19] < 10) {
     alert("End of game!");
-  } else if ((this.rollArray[18] == 10) && (this.rollArray.length == 22)) {
+  } else if ((this.rollArray[18] == 10) && (this.rollArray.length == 21)) {
     alert("End of game!");
   } else if ((this.rollArray[18] + this.rollArray[19] == 10) && (this.rollArray.length == 21)) {
     alert("End of game!");
