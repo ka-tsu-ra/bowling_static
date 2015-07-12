@@ -10,7 +10,7 @@ Bowling.prototype.fillFrameScores = function() {
   var lastScore = this.rollArray[this.rollCount-2]
   var secondLastScore = this.rollArray[this.rollCount-1]
   if (this.rollCount % 2 == 0) {
-    var frameScore = (lastScore + secondLastScore); 
+    var frameScore = (lastScore + secondLastScore);
     this.frameScores.push(frameScore);
     this.addBonus();
   };
@@ -23,27 +23,35 @@ Bowling.prototype.addBonus = function() {
     this.frameScores[(this.frameScores.length-2)] += this.rollArray[this.rollCount-2];
   };
 };
-//
-// Bowling.prototype.checkEnd = function() {
-//   if((rollCount == 21) || ((rollCount == 20) && (this.frameScores[9] < 10))) {
-//   alert("Game over!");
-//   };
-// };
+
+Bowling.prototype.checkEnd = function() {
+  if (this.rollArray[18] + this.rollArray[19] < 10) {
+    alert("End of game!");
+  } else if (this.rollArray.length == 21) {
+    alert("End of game!");
+  };
+};
+
+Bowling.prototype.totalScore = function() {
+  this.scoreTotal = this.frameScores[0] + this.frameScores[1] + this.frameScores[2] + this.frameScores[3] + this.frameScores[4] + this.frameScores[5] + this.frameScores[6] + this.frameScores[7] + this.frameScores[8] + this.frameScores[9];
+};
+
 
 Bowling.prototype.roll = function(num) {
 
-
-  // this.checkEnd;
   this.rollCount ++;
 
   if (this.rollCount % 2 == 0) {
     this.frameCount ++;
   };
 
-  if (this.rollArray[(this.rollCount-2)] != 10) {
-    this.rollArray.push(num);
-  } else {
+  if ((this.rollCount % 2 == 0) && (this.rollArray[(this.rollCount-2)] == 10)) {
     this.rollArray.push(0);
+  } else {
+    this.rollArray.push(num);
   };
+
   this.fillFrameScores();
+  this.totalScore();
+  this.checkEnd();
 };

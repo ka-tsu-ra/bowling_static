@@ -53,4 +53,13 @@ describe('Bowling', function() {
       expect(bowling.frameScores[0]).toBe(13);
     });
   });
+
+  describe('scoreTotal', function() {
+    it('adds up all of the frame scores', function() {
+      for (var i = 0; i < 20; i++) {
+        bowling.roll(3);
+      };
+      expect(bowling.scoreTotal).toBe(60);
+    });
+  });
 });
