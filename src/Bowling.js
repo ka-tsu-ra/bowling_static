@@ -14,6 +14,9 @@ Bowling.prototype.fillFrameScores = function() {
     this.frameScores.push(frameScore);
     this.addBonus();
   };
+  if (this.rollArray.length == 21) {
+    this.addBonus();
+  };
 };
 
 Bowling.prototype.addBonus = function() {
@@ -26,6 +29,13 @@ Bowling.prototype.addBonus = function() {
 
   if ((this.rollArray[this.rollCount-4] == 10) && (this.rollArray[this.rollCount-6] == 10)) {
     this.frameScores[(this.frameScores.length-3)] += this.rollArray[this.rollCount-2];
+
+  // LAST BONUS SECTION NEEDS WORK. MIGHT NEED TO CUT IT OFF
+  // IN THE EVENT OF MORE THAN 3 CONSECUTIVE STRIKES.
+
+  };
+  if (this.rollArray.length == 21) {
+    this.frameScores[9] += this.rollArray[20];
   };
 };
 
@@ -56,7 +66,7 @@ Bowling.prototype.roll = function(num) {
     this.frameCount ++;
   };
 
-  if (this.frameCount <= 10) {
+  if (this.frameCount <= 9) {
 
     if ((this.rollCount % 2 == 0) && (this.rollArray[(this.rollCount-2)] == 10)) {
       this.rollArray.push(0);

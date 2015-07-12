@@ -82,4 +82,16 @@ describe('Bowling', function() {
       expect(bowling.scoreTotal).toBe(300);
     });
   });
+
+  describe('tenth frame', function() {
+    it('adds maximum 30 to the score', function() {
+      for (var i = 0; i < 18; i++) {
+        bowling.roll(5);
+      };
+      bowling.roll(10);
+      bowling.roll(10);
+      bowling.roll(10);
+      expect(bowling.frameScores[9]).toBe(30);
+    });
+  });
 });
