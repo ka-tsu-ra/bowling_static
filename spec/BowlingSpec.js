@@ -42,6 +42,17 @@ describe('Bowling', function() {
       bowling.roll(3);
       expect(bowling.frameScores[0]).toBe(16);
     });
+
+    it('after 2 consecutive strikes, it also adds the next non-strike roll as bonus to the frame of the first strike', function() {
+      bowling.roll(10);
+      bowling.roll(0);
+      bowling.roll(10);
+      bowling.roll(0);
+      bowling.roll(3);
+      bowling.roll(4);
+      expect(bowling.frameScores[0]).toBe(23);
+      expect(bowling.frameScores[1]).toBe(17);
+    });
   });
 
   describe('spare bonus', function() {

@@ -19,8 +19,13 @@ Bowling.prototype.fillFrameScores = function() {
 Bowling.prototype.addBonus = function() {
   if (this.rollArray[this.rollCount-4] == 10) {
     this.frameScores[(this.frameScores.length-2)] += this.frameScores[(this.frameScores.length-1)];
+
   } else if ((this.rollArray[this.rollCount-4]) + (this.rollArray[this.rollCount-3]) == 10) {
     this.frameScores[(this.frameScores.length-2)] += this.rollArray[this.rollCount-2];
+  };
+
+  if ((this.rollArray[this.rollCount-4] == 10) && (this.rollArray[this.rollCount-6] == 10)) {
+    this.frameScores[(this.frameScores.length-3)] += this.rollArray[this.rollCount-2];
   };
 };
 
