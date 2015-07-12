@@ -33,7 +33,9 @@ Bowling.prototype.checkEnd = function() {
 };
 
 Bowling.prototype.totalScore = function() {
-  this.scoreTotal = this.frameScores[0] + this.frameScores[1] + this.frameScores[2] + this.frameScores[3] + this.frameScores[4] + this.frameScores[5] + this.frameScores[6] + this.frameScores[7] + this.frameScores[8] + this.frameScores[9];
+  if (this.frameCount == 10) {
+    this.scoreTotal = this.frameScores[0] + this.frameScores[1] + this.frameScores[2] + this.frameScores[3] + this.frameScores[4] + this.frameScores[5] + this.frameScores[6] + this.frameScores[7] + this.frameScores[8] + this.frameScores[9];
+  };
 };
 
 
