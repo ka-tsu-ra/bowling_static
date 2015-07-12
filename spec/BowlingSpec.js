@@ -72,5 +72,14 @@ describe('Bowling', function() {
       };
       expect(bowling.scoreTotal).toBe(60);
     });
+
+    it('knows how to score a perfect game', function() {
+      for (var i = 0; i < 10; i++) {
+        bowling.roll(10);
+        bowling.roll(0);
+      };
+      bowling.roll(10);
+      expect(bowling.scoreTotal).toBe(300);
+    });
   });
 });
